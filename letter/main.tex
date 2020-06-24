@@ -1,0 +1,159 @@
+%
+% Copyright(C) Pedro Henrique Penna <pedrohenriquepenna@gmail.com>
+%
+% All rights reserved.
+%
+
+\documentclass[a4paper,10pt,english]{article}
+\usepackage[paper=a4paper,centering,margin=1in]{geometry}
+\usepackage{palatino}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{sectsty}
+
+% Encoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Language
+\usepackage[english]{babel}
+
+% Acronyms
+\usepackage{xspace}
+\usepackage[acronym,nowarn]{glossaries}
+\glsdisablehyper
+\input{acronyms.tex}
+\makeglossaries
+
+% Hyper References
+\usepackage[hidelinks]{hyperref}
+
+% Images
+\usepackage{graphicx}
+\usepackage{subcaption}
+\graphicspath{{./img/}}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+
+% Paragraphs
+\setlength\parindent{0.0em}
+\setlength\parskip{0.5em}
+\renewcommand{\baselinestretch}{1.15}
+
+%===============================================================================
+
+% Writer Info
+\def\firstname{Pedro Henrique\xspace}
+\def\lastname{Penna\xspace}
+\def\status{PhD Candidate\xspace}
+
+% Institution Info
+\def\university{\pucminas}
+\def\institute{\dcc}
+\def\department{\ppginf}
+\def\laboratory{\cart}
+\def\city{Belo Horizonte, Brazil\xspace}
+
+\def\prevarticle{%
+	``\textit{%
+		BinLPT: A Novel Workload-Aware Loop
+		Scheduler for Irregular Parallel Loops%
+	}''
+\xspace
+}
+
+\def\newarticle{%
+	``\textit{%
+		A Comprehensive Performance Evaluation of
+		the BinLPT Workload-Aware Loop Scheduler%
+	}''
+\xspace
+}
+
+\def\conference{%
+	\textit{
+		XVIII Simpósio em Sistemas Computacionais de Alto Desempenho (WSCAD-SSC)
+	}
+}
+
+%===============================================================================
+
+\begin{document}
+
+
+\begin{tabular}{ p{5em} l }
+	\multirow{3}{*}{\includegraphics[width=5em]{logos/pucminas.png}}
+		& {\large\bf{\university}} \\[0.2em]
+		& \institute               \\
+		& \department              \\[0.4em]
+\end{tabular}
+
+\rule{\linewidth}{0.5pt}
+
+%===============================================================================
+
+% Turn off page numbers.
+\pagenumbering{gobble}
+
+\begin{flushleft}
+\firstname \lastname, \status\\
+\laboratory
+\end{flushleft}
+
+\begin{flushright}
+\city, \today
+\end{flushright}
+
+Dear Editor, \\
+
+I am writing to submit our paper entitled \newarticle for consideration for
+publication in Concurrency and Computation: Practice and Experience's Special
+Issue for the \conference.  This work is an extended version of the paper
+\prevarticle. We believe that it includes enough new contributions to justify
+the journal publication.
+
+In our original work, we proposed a new workload-aware scheduling strategy
+called BinLPT to overcome drawbacks of existing related strategies. BinLPT
+strategy relies on three features to deliver superior performance:  (i)
+user-supplied estimations of the workload of the loop; (ii) a greedy heuristic
+that adaptively partitions the iteration space in several chunks; and (iii) a
+scheduling scheme based on the LPT and on-demand techniques.  Based on this
+original work, we add the following new contributions in this extended version:
+
+	\begin{itemize}
+		\item We introduce a multiloop support feature to the original
+			implementation of BinLPT. This new functionality enables the HPC
+			engineer to reuse workload estimations across different parallel
+			loops as well as to have different workload estimations for each
+			one. Based on the multiloop feature, we discuss how we were able to
+			integrate BinLPT into a large-scale real-world-application: an
+			Elastodynamics Simulator. Furthermore, we present a performance
+			evaluation of this simulator running on the Santos Dumont
+			supercomputer.
+
+		\item We present a comprehensive performance evaluation of BinLPT based
+			on three different techniques.  First, we used simulations to
+			understand the performance of BinLPT in a great number of
+			scenarios.  Next, we relied on a synthetic kernel to uncover the
+			upper bound performance gains of our strategy.  Finally, we
+			employed three scientific kernels, each of which featuring distinct
+			characteristics, to study the performance of BinLPT.  We considered
+			several performance factors in our analysis and a wide variety of
+			workloads, and we run all experiments with a 192-core NUMA machine
+			to provide a rich analysis.
+	\end{itemize}
+
+Furthermore, we have re-worked existing sections to better detail the internals
+and implementation of BinLPT. Our results unveiled that BinLPT better balances
+the workload of a loop, and this behaviour is strengthened by the algorithmic
+complexity of the loop.  Overall, BinLPT delivers up to $37.15\%$ and $9.11\%$
+better performance than baselines in the application kernels and elastodynamics
+simulations, respectively.
+
+Thank you for receiving our manuscript and considering it for review. We
+appreciate your time and look forward to your response.\\
+
+Best regards,
+
+\firstname
+
+\end{document}
