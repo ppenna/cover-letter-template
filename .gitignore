@@ -1,0 +1,30 @@
+# Vim
+*.swp
+
+# LaTeX
+*.acn
+*.aux
+*.bbl
+*.bcf
+*.blg
+*-blx.bib
+*.fdb_latexmk
+*.fls
+*.glo
+*.gz
+*.out
+*.ist
+*.log
+*.nav
+*.snm
+*.toc
+*.vrb
+*.xml
+main.bib
+
+# LaTeX Paper
+letter/*.out
+letter/*.pdf
+
+# Folders
+*.DS_Store
